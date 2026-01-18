@@ -35,6 +35,9 @@ app.use("/refresh", require("./routes/apis/refresh"));
 app.use("/users", require("./routes/apis/users"));
 app.use("/logout", require("./routes/apis/logout"));
 app.use("/bookings", require("./routes/apis/booking"));
+app.get("/admin", (req, res) => {
+  res.redirect("https://chill-and-thrive-admin.sanity.studio/");
+});
 
 // app.use("/employees", require("./routes/apis/employees"));
 
@@ -61,6 +64,6 @@ mongoose.connection.on("error", (err) => {
   console.log(err);
   LogEvents(
     `${err.no}: ${err.code}\t${err.syscall}\t${err.hostname}`,
-    "mongoErrLog.log"
+    "mongoErrLog.log",
   );
 });
