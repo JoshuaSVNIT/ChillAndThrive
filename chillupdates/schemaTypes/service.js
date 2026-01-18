@@ -37,7 +37,7 @@ export default {
       of: [{type: 'string'}],
     },
     {
-      name: 'image',
+      name: 'imageUrl',
       title: 'Cover Image',
       type: 'image',
       options: {

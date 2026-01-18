@@ -38,6 +38,7 @@ app.use("/bookings", require("./routes/apis/booking"));
 app.get("/admin", (req, res) => {
   res.redirect("https://chill-and-thrive-admin.sanity.studio/");
 });
+app.use("/services", require("./routes/apis/services"));
 
 // app.use("/employees", require("./routes/apis/employees"));
 
