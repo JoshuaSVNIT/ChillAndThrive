@@ -25,6 +25,12 @@ export default {
       rows: 3,
     },
     {
+      name: 'longDescription',
+      title: 'Long Description (for the card)',
+      type: 'text',
+      rows: 3,
+    },
+    {
       name: 'benefits',
       title: 'Benefits',
       type: 'array',

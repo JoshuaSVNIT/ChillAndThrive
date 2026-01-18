@@ -15,6 +15,14 @@ export default {
       type: 'string',
     },
     {
+      name: 'HeaderImage',
+      title: 'Cover Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
       name: 'gallery',
       title: 'Image Gallery',
       type: 'array', // <--- 1. Define it as a list
