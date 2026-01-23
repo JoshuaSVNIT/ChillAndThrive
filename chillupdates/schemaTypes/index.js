@@ -6,6 +6,7 @@ import service from './service'
 import comboService from './comboService'
 import testimonials from './testimonials'
 import events from './events'
+import feedback from './feedback'
 
 export const schemaTypes = [
   post,
@@ -16,4 +17,5 @@ export const schemaTypes = [
   comboService,
   testimonials,
   events,
+  feedback,
 ]

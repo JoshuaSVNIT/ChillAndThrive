@@ -8,10 +8,19 @@ export default {
       title: 'Name',
       type: 'string',
     },
-
+    {
+      name: 'role',
+      title: 'Role/Position',
+      type: 'string',
+    },
     {
       name: 'review',
       title: 'Review',
+      type: 'string',
+    },
+    {
+      name: 'rating',
+      title: 'Rating (out of 5)',
       type: 'string',
     },
     {

@@ -52,5 +52,37 @@ export default {
         },
       ],
     },
+    // chillupdates/schemaTypes/event.js
+
+    {
+      name: 'videoGallery',
+      title: 'Video Gallery (YouTube Links)',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'videoLink',
+          fields: [
+            {
+              name: 'url',
+              title: 'YouTube URL',
+              type: 'url',
+              description: 'Paste the full link (e.g., https://www.youtube.com/watch?v=...)',
+            },
+            {
+              name: 'caption',
+              title: 'Video Caption',
+              type: 'string',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'caption',
+              subtitle: 'url',
+            },
+          },
+        },
+      ],
+    },
   ],
 }
