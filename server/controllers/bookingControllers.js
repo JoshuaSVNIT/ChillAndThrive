@@ -1,4 +1,5 @@
 const { createClient } = require("@sanity/client");
+const crypto = require("crypto"); // 👈 Added for signature verification
 require("dotenv").config();
 
 const writeClient = createClient({
@@ -11,21 +12,35 @@ const writeClient = createClient({
 const Booking = require("../model/booking");
 const usersDB = require("../model/users");
 
+// ---------------------------------------------------------
+// 1. GET AVAILABILITY
+// ---------------------------------------------------------
 const getAvailability = async (req, res) => {
-  const { date, resources } = req.body; // <--- REMOVED 'let', simplified destructuring
+  // 1. LOG THE INCOMING REQUEST
+  console.log("🔍 Availability Request Received:", req.body);
+
+  const { date, resources } = req.body;
 
   if (!date || !resources) {
+    console.error("❌ Missing Data:", { date, resources });
     return res.status(400).json({ message: "Date and resources are required" });
   }
 
-  // ❌ DELETED: Manual Date Conversion Block
-  // The frontend <input type="date"> already sends "YYYY-MM-DD",
-  // so we use 'date' directly.
-
-  const requestedResources = resources.split(",");
+  // 2. SAFE RESOURCE PARSING (Prevents Crash)
+  let requestedResources = [];
+  if (Array.isArray(resources)) {
+    requestedResources = resources;
+  } else if (typeof resources === "string") {
+    requestedResources = resources.split(",");
+  } else {
+    console.error("❌ Invalid Resources Format:", typeof resources);
+    return res.status(400).json({ message: "Invalid resources format" });
+  }
 
   try {
-    const dateObj = new Date(date); // Works perfectly with YYYY-MM-DD
+    // 3. FIX TIMEZONE BUG (Force correct Day Name)
+    const dateObj = new Date(date + "T00:00:00");
+
     const daysOfWeek = [
       "Sunday",
       "Monday",
@@ -37,42 +52,97 @@ const getAvailability = async (req, res) => {
     ];
     const dayName = daysOfWeek[dateObj.getDay()];
 
-    // Sanity Query
+    console.log(
+      `📅 Date: ${date} | Day: ${dayName} | Resources: ${requestedResources}`,
+    );
+
+    // 4. SANITY QUERY
     const query = `*[_type == "timeSlots" && day == $day][0].activeSlots`;
     const params = { day: dayName };
 
+    console.log("📡 Fetching from Sanity...");
     let allSlots = await writeClient.fetch(query, params);
+
     if (!allSlots) {
+      console.warn(
+        `⚠️ No slots found in Sanity for ${dayName}. Returning empty array.`,
+      );
       allSlots = [];
+    } else {
+      console.log(`✅ Sanity returned ${allSlots.length} slots.`);
     }
 
+    // 5. MONGODB QUERY
+    console.log("📡 Fetching existing bookings from MongoDB...");
     const dateBookings = await Booking.find({ date: date });
+    console.log(`found ${dateBookings.length} bookings for this date.`);
 
+    // 6. CALCULATE BLOCKED SLOTS
     const blockedSlots = dateBookings
       .filter((booking) => {
-        return booking.resources.some((r) => requestedResources.includes(r));
+        const bookingRes = booking.resources || [];
+        return bookingRes.some((r) => requestedResources.includes(r));
       })
       .map((b) => b.timeSlot);
 
+    console.log("🚫 Blocked Slots:", blockedSlots);
+
+    // 7. CALCULATE AVAILABLE
     const availableSlots = allSlots.filter(
       (slot) => !blockedSlots.includes(slot),
     );
 
+    console.log("✅ Sending Available:", availableSlots);
     res.json(availableSlots);
   } catch (err) {
-    console.error("Availability Error:", err); // Added log for easier debugging
-    res.status(500).json({ message: err.message });
+    console.error("🔥 CRITICAL ERROR in getAvailability:", err);
+    res.status(500).json({ message: "Server Error: " + err.message });
   }
 };
 
+// ---------------------------------------------------------
+// 2. CREATE BOOKING (Updated with Razorpay Logic)
+// ---------------------------------------------------------
 const createBooking = async (req, res) => {
-  const { service, date, timeSlot, resources } = req.body; // <--- REMOVED 'let'
+  const {
+    service,
+    date,
+    timeSlot,
+    resources,
+    razorpay_order_id,
+    razorpay_payment_id,
+    razorpay_signature,
+  } = req.body;
 
   if (!service || !date || !timeSlot || !resources) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  // ❌ DELETED: Manual Date Conversion Block here too
+  // -------------------------------------------------------
+  // 🔐 RAZORPAY VERIFICATION (Fixed Security)
+  // -------------------------------------------------------
+  if (razorpay_order_id && razorpay_payment_id && razorpay_signature) {
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+
+    const expectedSignature = crypto
+      .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
+      .update(body.toString())
+      .digest("hex");
+
+    const isAuthentic = expectedSignature === razorpay_signature;
+
+    if (!isAuthentic) {
+      return res.status(400).json({
+        message: "Payment verification failed. Please contact support.",
+      });
+    }
+  } else {
+    // 🚨 SECURITY FIX: We now REJECT bookings without payment
+    return res
+      .status(400)
+      .json({ message: "Payment details are missing. Booking denied." });
+  }
+  // -------------------------------------------------------
 
   // Validate date is not in the past
   const bookingDate = new Date(date);
@@ -137,6 +207,7 @@ const createBooking = async (req, res) => {
       date,
       timeSlot,
       resources,
+      paymentId: razorpay_payment_id || null, // 👈 Save Payment ID if it exists
     });
 
     res.status(201).json({ message: `Booking Confirmed for ${timeSlot}!` });
@@ -145,6 +216,9 @@ const createBooking = async (req, res) => {
   }
 };
 
+// ---------------------------------------------------------
+// 3. GET MY BOOKINGS (Unchanged)
+// ---------------------------------------------------------
 const getMyBookings = async (req, res) => {
   const user = await usersDB.findOne({ email: req.user });
   try {
@@ -157,6 +231,9 @@ const getMyBookings = async (req, res) => {
   }
 };
 
+// ---------------------------------------------------------
+// 4. GET ALL BOOKINGS (Unchanged)
+// ---------------------------------------------------------
 const getAllBookings = async (req, res) => {
   try {
     const bookings = await Booking.find()
