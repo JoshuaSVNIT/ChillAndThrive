@@ -12,7 +12,7 @@ const corsOptions = require("./config/corsOptions");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-const paymentController = require("./controllers/paymentController");
+const paymentController = require("./controllers/paymentControllers");
 const PORT = process.env.PORT || 3500;
 console.log(process.env.NODE_ENV);
 
@@ -37,7 +37,7 @@ app.use("/users", require("./routes/apis/users"));
 app.use("/logout", require("./routes/apis/logout"));
 app.use("/bookings", require("./routes/apis/booking"));
 
-app.use("/payment", require("./routes/payment"));
+app.use("/payment", require("./routes/apis/payment"));
 app.get("/admin", (req, res) => {
   res.redirect("https://chill-and-thrive-admin.sanity.studio/");
 });
