@@ -5,7 +5,7 @@ const verifyJWT = require("../../middleware/verifyJWT");
 const verifyRoles = require("../../middleware/verifyRoles");
 const ROLES_LIST = require("../../config/rolesList");
 
-router.get("/availability", bookingController.getAvailability);
+router.post("/availability", bookingController.getAvailability);
 
 // PROTECTED ROUTES (Must be logged in to book)
 router.use(verifyJWT);
