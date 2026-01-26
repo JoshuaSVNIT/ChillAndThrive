@@ -10,6 +10,7 @@ import feedback from './feedback'
 import timeSlots from './timeSlots'
 import awareness from './awareness'
 import myth from './myth'
+import faq from './faq'
 
 export const schemaTypes = [
   post,
@@ -24,4 +25,5 @@ export const schemaTypes = [
   timeSlots,
   awareness,
   myth,
+  faq,
 ]

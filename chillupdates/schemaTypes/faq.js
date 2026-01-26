@@ -1,16 +1,16 @@
 export default {
-  name: 'myth',
-  title: 'Myth and Fact',
+  name: 'faq',
+  title: 'FAQs',
   type: 'document',
   fields: [
     {
-      name: 'myth',
-      title: 'Myth',
+      name: 'question',
+      title: 'Question',
       type: 'string',
     },
     {
-      name: 'fact',
-      title: 'Fact',
+      name: 'answer',
+      title: 'Answer',
       type: 'string',
     },
   ],

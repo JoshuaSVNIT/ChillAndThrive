@@ -20,7 +20,6 @@ exports.submitFeedback = async (req, res) => {
       email: email,
       phone: phone,
       message: message,
-      rating: Number(rating),
       status: "pending", // Default to pending
     });
 

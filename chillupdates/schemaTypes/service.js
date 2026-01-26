@@ -14,6 +14,11 @@ export default {
       type: 'number',
     },
     {
+      name: 'discount',
+      title: 'Discount Percentage',
+      type: 'number',
+    },
+    {
       name: 'duration',
       title: 'Duration (mins)',
       type: 'string',

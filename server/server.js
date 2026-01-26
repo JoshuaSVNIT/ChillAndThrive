@@ -38,7 +38,7 @@ app.use("/logout", require("./routes/apis/logout"));
 app.use("/bookings", require("./routes/apis/booking"));
 
 app.use("/payment", require("./routes/apis/payment"));
-app.get("/admin", (req, res) => {
+app.get("/adminCMS", (req, res) => {
   res.redirect("https://chill-and-thrive-admin.sanity.studio/");
 });
 
@@ -46,6 +46,7 @@ app.use("/services", require("./routes/apis/CMS/services"));
 app.use("/testimonials", require("./routes/apis/CMS/testimonials"));
 app.use("/events", require("./routes/apis/CMS/events"));
 app.use("/feedback", require("./routes/apis/CMS/feedback"));
+app.use("/info", require("./routes/apis/CMS/info"));
 
 // app.use("/employees", require("./routes/apis/employees"));
 
