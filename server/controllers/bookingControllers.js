@@ -12,34 +12,20 @@ const Booking = require("../model/booking");
 const usersDB = require("../model/users");
 
 const getAvailability = async (req, res) => {
-  let { date, resources } = req.body;
+  const { date, resources } = req.body; // <--- REMOVED 'let', simplified destructuring
 
   if (!date || !resources) {
     return res.status(400).json({ message: "Date and resources are required" });
   }
 
-  // Convert DD-MM-YYYY to YYYY-MM-DD manually
-  const [day, month, year] = date.split("-");
-  const isoDate = `${year}-${month}-${day}`;
-  date = isoDate; // Use standardized date for the rest of the function
+  // ❌ DELETED: Manual Date Conversion Block
+  // The frontend <input type="date"> already sends "YYYY-MM-DD",
+  // so we use 'date' directly.
 
-  const requestedResources = resources.split(","); //resources is a string to convert to array
-
-  // const allSlots = [
-  //   "09:00 AM",
-  //   "10:00 AM",
-  //   "11:00 AM",
-  //   "12:00 PM",
-  //   "01:00 PM",
-  //   "02:00 PM",
-  //   "03:00 PM",
-  //   "04:00 PM",
-  //   "05:00 PM",
-  //   "06:00 PM",
-  // ];
+  const requestedResources = resources.split(",");
 
   try {
-    const dateObj = new Date(date);
+    const dateObj = new Date(date); // Works perfectly with YYYY-MM-DD
     const daysOfWeek = [
       "Sunday",
       "Monday",
@@ -50,7 +36,8 @@ const getAvailability = async (req, res) => {
       "Saturday",
     ];
     const dayName = daysOfWeek[dateObj.getDay()];
-    // We ask Sanity: "Give me the activeSlots for the document where day is 'Monday'"
+
+    // Sanity Query
     const query = `*[_type == "timeSlots" && day == $day][0].activeSlots`;
     const params = { day: dayName };
 
@@ -66,13 +53,6 @@ const getAvailability = async (req, res) => {
         return booking.resources.some((r) => requestedResources.includes(r));
       })
       .map((b) => b.timeSlot);
-    // NOTE FOR ME LATER:
-    //.some returns true when at least one resource overlaps
-    //ex: user requests ["Steam Room", "Sauna"]
-    //a booking has resources ["Jacuzzi", "Sauna"]
-    //.some will return true because "Sauna" is in both arrays
-    //.include checks if resource r is in requestedResources
-    //.map just collects the timeSlots of those conflicting bookings
 
     const availableSlots = allSlots.filter(
       (slot) => !blockedSlots.includes(slot),
@@ -80,21 +60,19 @@ const getAvailability = async (req, res) => {
 
     res.json(availableSlots);
   } catch (err) {
+    console.error("Availability Error:", err); // Added log for easier debugging
     res.status(500).json({ message: err.message });
   }
 };
 
 const createBooking = async (req, res) => {
-  let { service, date, timeSlot, resources } = req.body;
+  const { service, date, timeSlot, resources } = req.body; // <--- REMOVED 'let'
 
   if (!service || !date || !timeSlot || !resources) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  // Convert DD-MM-YYYY to YYYY-MM-DD manually
-  const [day, month, year] = date.split("-");
-  const isoDate = `${year}-${month}-${day}`;
-  date = isoDate; // Use standardized date for storage and validation
+  // ❌ DELETED: Manual Date Conversion Block here too
 
   // Validate date is not in the past
   const bookingDate = new Date(date);
@@ -115,7 +93,6 @@ const createBooking = async (req, res) => {
       .json({ message: "Cannot book more than 7 days in advance" });
   }
 
-  // Sanitize and validate resources array
   if (!Array.isArray(resources) || resources.length === 0) {
     return res
       .status(400)
@@ -128,11 +105,10 @@ const createBooking = async (req, res) => {
       return res.status(401).json({ message: "User not found" });
     }
 
-    // Check user's booking limit (prevent spam)
+    // Check user's booking limit
     const userBookingsToday = await Booking.countDocuments({
       user: user._id,
       createdAt: { $gte: new Date(new Date().setHours(0, 0, 0, 0)) },
-      //mongo stores createdAt
     });
 
     if (userBookingsToday >= 5) {
@@ -141,11 +117,11 @@ const createBooking = async (req, res) => {
         .json({ message: "Daily booking limit reached (5 bookings per day)" });
     }
 
-    // Use atomic operation to prevent race conditions
+    // Check for duplicates
     const duplicate = await Booking.findOne({
       date,
       timeSlot,
-      resources: { $in: resources }, // MongoDB operator to check overlap
+      resources: { $in: resources },
     });
 
     if (duplicate) {
@@ -154,9 +130,9 @@ const createBooking = async (req, res) => {
         .json({ message: "Sorry, one of the facilities is already booked." });
     }
 
-    // Create booking with user ID reference
+    // Create booking
     await Booking.create({
-      user: user._id, // Use ObjectId instead of full user object
+      user: user._id,
       service,
       date,
       timeSlot,
