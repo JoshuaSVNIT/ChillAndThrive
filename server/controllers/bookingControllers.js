@@ -229,13 +229,25 @@ const createBooking = async (req, res) => {
 // 3. GET MY BOOKINGS (Unchanged)
 // ---------------------------------------------------------
 const getMyBookings = async (req, res) => {
-  const user = await usersDB.findOne({ email: req.user });
+  // 1. req.user is the EMAIL from the JWT (set by verifyJWT middleware)
+  if (!req.user) return res.status(401).json({ message: "Unauthorized" });
+
   try {
-    const bookings = await Booking.find({ user: user }).sort({
-      createdAt: -1,
-    });
+    // 2. Find the User Document to get the _id
+    const foundUser = await usersDB.findOne({ email: req.user }).exec();
+
+    if (!foundUser) {
+      return res.status(204).json({ message: "User not found" });
+    }
+
+    // 3. Find Bookings linked to this User's ID
+    const bookings = await Booking.find({ user: foundUser._id })
+      .sort({ createdAt: -1 }) // Sort by Newest first
+      .exec();
+
     res.json(bookings);
   } catch (err) {
+    console.error("Error fetching bookings:", err);
     res.status(500).json({ message: err.message });
   }
 };
