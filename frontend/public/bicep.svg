@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="#1A3C2B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Transparent Background -->
+  
+  <!-- The Dumbbell -->
+  <!-- Left Weight -->
+  <rect x="15" y="15" width="10" height="25" rx="3" />
+  <line x1="25" y1="27.5" x2="35" y2="27.5" />
+  
+  <!-- Right Weight -->
+  <rect x="75" y="15" width="10" height="25" rx="3" />
+  <line x1="65" y1="27.5" x2="75" y2="27.5" />
+  
+  <!-- Handle (visible parts) -->
+  <line x1="35" y1="27.5" x2="65" y2="27.5" />
+
+  <!-- The Arm -->
+  <!-- Fist gripping the dumbbell -->
+  <path d="M40 20 C40 15, 60 15, 60 20 C60 35, 40 35, 40 20" />
+  
+  <!-- Forearm -->
+  <path d="M60 25 C70 30, 75 45, 70 60" />
+  
+  <!-- Bicep / Muscle Curve -->
+  <path d="M40 25 C30 30, 20 45, 25 60" />
+  
+  <!-- Bottom/Tricep connection closing the arm shape -->
+  <path d="M25 60 C25 75, 45 85, 70 60" />
+  
+  <!-- Inner Muscle Definition Line -->
+  <path d="M45 65 Q50 55 60 62" stroke-width="3" stroke-opacity="0.8" />
+</svg>

@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+
+/* --- Header.css --- */
+
+.logo img {
+    height: 50px; 
+    width: auto; 
+    object-fit: contain; 
+    max-width: 100%; 
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures logo left, hamburger right */
+    height: 70px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    z-index: 1000; 
+    background: #c0edfa94; 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    padding-right: 20px; /* Add padding for right side */
+    box-sizing: border-box; /* Important for padding */
+}
+
+.logo {
+    height: 100%; 
+    display: flex;
+    align-items: center;
+    padding-left: 2rem; 
+}
+
+/* --- Hamburger Menu Icon (Hidden on Desktop) --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #0059B3;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Navigation & Right Section --- */
+.right-section {
+    display: flex;
+    align-items: center;
+    /* margin-left: auto; REMOVED this to rely on justify-content: space-between */ 
+}
+
+.navBtns {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.nav-button a {
+    font-weight: 400;
+    text-decoration: none;
+    color: var(--ct-primary-dark);
+    border-radius: 50px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-inline: 5px;
+    padding: 7px 17px;    
+    transition: background-color .5s ease;
+    display: inline-block; /* Fixes height issues */
+}
+
+.nav-button a:hover {
+    background-color: var(--ct-primary-dark);
+    color: white;
+}
+
+.nav-button a.active {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px; 
+    font-weight: 700; 
+}
+
+.nav-button a.active:hover {
+    text-decoration: underline; 
+}
+
+/* User Section Wrapper */
+.user-section {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Avatar Circle */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--ct-primary-dark); 
+    color: white;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 2px solid white; 
+}
+
+.user-avatar:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 0 10px rgba(0, 89, 179, 0.3);
+}
+
+/* Sign In Button */
+.login-btn {
+    text-decoration: none;
+    color: var(--ct-primary-dark);
+    font-weight: 600;
+    border: 2px solid var(--ct-primary-dark);
+    padding: 6px 18px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.9rem;
+}
+
+.login-btn:hover {
+    background-color: #0059B3;
+    color: white;
+}
+
+/* =========================================
+   RESPONSIVE STYLES (Mobile/Tablet)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Show Hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Animate Hamburger to X */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hide Right Section by Default */
+    .right-section {
+        position: absolute;
+        top: 70px; /* Height of header */
+        left: 0;
+        width: 100%;
+        background-color: #E2EFF1; /* Solid background for readability */
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        gap: 20px;
+        /* Slide down animation setup */
+        transform: translateY(-150%); 
+        transition: transform 0.3s ease-in-out;
+        z-index: 999;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Slide in when open */
+    .right-section.open {
+        transform: translateY(0);
+    }
+
+    /* Stack Nav Buttons Vertically */
+    .navBtns {
+        flex-direction: column;
+        width: 100%;
+        margin-right: 0;
+        gap: 15px;
+    }
+
+    .nav-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-button a {
+        display: block;
+        width: 80%; /* Width of button on mobile */
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+
+    .user-section {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+}

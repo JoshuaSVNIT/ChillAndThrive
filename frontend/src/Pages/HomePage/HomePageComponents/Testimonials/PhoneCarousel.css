@@ -1,0 +1,93 @@
+/* Container to center the phone locally */
+.phone-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* The Smartphone Chassis */
+.phone-frame {
+  width: 250px;       /* Realistic phone width */
+  height: 508px;      /* Realistic phone height */
+  background-color: #1a1a1a;
+  border-radius: 40px;
+  border: 12px solid var(--ct-primary-dark); /* The bezel */
+  box-shadow: 
+    0 20px 50px rgba(0, 38, 77, 0.3), /* Deep shadow */
+    inset 0 0 10px rgba(255, 255, 255, 0.1); /* Glossy bezel effect */
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* The Top Notch (Dynamic Island style) */
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 25px;
+  background-color: #000;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  z-index: 20;
+}
+
+/* The Screen Area */
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+/* Carousel Items */
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.carousel-item img, 
+.carousel-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image fills screen without distortion */
+}
+
+/* Indicators at bottom */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 30;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}

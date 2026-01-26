@@ -1,0 +1,166 @@
+/* --- Color Palette Definitions --- */
+
+
+/* Section & Layout */
+.wct-section {
+  padding: 3rem 0; /* Reduced padding for mobile */
+  background-color: white;
+  width: 100%;
+}
+
+.wct-container {
+  width: min(100% - 2rem, 90rem); /* Increased max-width to fit 4 cards comfortably */
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.wct-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.wct-title {
+  font-size: 1.75rem; /* Slightly smaller on mobile */
+  font-weight: 700;
+  color: var( --ct-primary-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.wct-subtitle {
+  font-size: 1rem;
+  color: var( --ct-primary-dark);
+  opacity: 0.8;
+  max-width: 42rem;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* --- Responsive Grid Layout --- */
+.wct-grid {
+  display: grid;
+  gap: 1rem;
+  
+  /* MAGIC FIX: 
+     1. auto-fit: Fits as many columns as possible.
+     2. minmax(280px, 1fr): Cards will be at least 280px wide. 
+        If space allows, they stretch (1fr). 
+        This replaces the need for specific 768px/1024px media queries for columns.
+  */
+  grid-template-columns: 1fr;
+}
+
+/* --- Card Styles --- */
+.wct-card {
+  background-color: var( --bg-neutral);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  
+  /* Flexbox logic ensures height stretches effectively */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  
+  /* This makes the card fill the grid cell height entirely */
+  height: 100%; 
+  box-sizing: border-box; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Icon Styles */
+.wct-icon-wrapper {
+  margin-bottom: 1.25rem;
+  color: var( --ct-primary-dark);
+  flex-shrink: 0; /* Prevents icon from getting squashed */
+}
+
+.wct-icon-svg {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Content Wrapper */
+.wct-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Pushes the button to the bottom if content is short */
+    width: 100%;
+}
+
+/* Card Text */
+.wct-card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var( --ct-primary-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.wct-card-desc {
+  font-size: 0.95rem;
+  color: var( --ct-primary-dark);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* This ensures the description takes available space */
+}
+
+/* --- Button Styles --- */
+.wct-card-btn {
+  display: inline-block;
+  background-color: var(--ct-primary-dark);
+  color: var( --ct-light-blue);
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: opacity 0.3s ease;
+  align-self: flex-start;
+  margin-top: auto; /* Ensures button sticks to bottom of flex container */
+}
+
+.wct-card-btn:hover {
+  opacity: 0.9;
+}
+
+/* --- Inverted Card Styles (First Card) --- */
+.wct-card-inverted {
+  background-color: var( --ct-primary-dark);
+}
+
+.wct-card-inverted .wct-icon-wrapper,
+.wct-card-inverted .wct-card-title,
+.wct-card-inverted .wct-card-desc {
+  color: var( --bg-neutral);
+}
+
+.wct-card-inverted .wct-card-btn {
+  background-color: var( --bg-neutral);
+  color: var(--ct-primary-dark);
+}
+
+/* --- Desktop Enhancements (Media Queries) --- */
+/* We keep this strictly for text sizing and spacing, not layout columns */
+/* --- DESKTOP LAYOUT (Force 4 Columns) --- */
+@media (min-width: 1024px) {
+  .wct-section {
+    padding: 5rem 0;
+  }
+
+  .wct-grid {
+    gap: 1.5rem;
+    
+    /* FORCE 4 COLUMNS: This overrides the mobile stack */
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .wct-title {
+    font-size: 2.25rem;
+  }
+  
+  /* Optional: Adjust text size if 4 columns feel too cramped */
+  .wct-card-title {
+    font-size: 1.35rem;
+  }
+}

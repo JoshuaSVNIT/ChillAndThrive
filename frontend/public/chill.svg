@@ -1,0 +1,43 @@
+<svg width="800" height="450" viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+<!-- Background -->
+<rect width="800" height="450" fill="#D4F6E9" />
+
+<!-- Main Body - Base Shape -->
+
+<path d="M150,170 C150,185 180,310 350,380 C400,400 450,420 480,330 C510,240 650,220 650,150 C650,120 580,100 550,140 C520,170 450,140 430,155 L150,170 Z" fill="#78C6EB" />
+
+<!-- Interior Segments (Darker Blues) -->
+
+<path d="M420,385 C450,350 500,320 520,280 C540,240 540,210 520,190 L500,180 L450,390 Z" fill="#2E86AB" />
+<path d="M250,230 C280,260 330,320 380,340 L400,280 L250,230 Z" fill="#4B9CD3" />
+<path d="M380,380 C400,405 450,410 480,380 L460,340 L380,380 Z" fill="#2E86AB" />
+
+<!-- Top Dark Bar -->
+
+<path d="M130,165 C130,155 450,145 440,165 C430,185 130,185 130,165 Z" fill="#1C5E8A" />
+
+<!-- Top Organic Shape -->
+
+<path d="M440,160 C460,130 520,120 550,150 C580,180 570,240 530,260 C500,280 440,240 440,160 Z" fill="#1C5E8A" />
+
+<!-- Floating Circle -->
+
+<circle cx="540" cy="80" r="45" fill="#1C5E8A" />
+
+<!-- Floating Teardrop -->
+
+<path d="M600,130 C620,110 670,120 660,145 C650,170 610,160 600,130 Z" fill="#1C5E8A" />
+
+<!-- Web/Vein Patterns (White Lines) -->
+
+<g fill="none" stroke="#DDF1F9" stroke-width="8" stroke-linecap="round">
+<path d="M180,190 Q300,250 350,380" />
+<path d="M220,190 Q280,300 300,340" />
+<path d="M300,190 Q320,250 420,320" />
+<path d="M380,185 Q400,280 480,340" />
+<path d="M420,185 Q460,240 550,260" />
+<!-- Horizontal Crosses -->
+<path d="M190,260 C250,250 350,280 450,280" />
+<path d="M320,320 C380,330 450,360 480,380" />
+</g>
+</svg>

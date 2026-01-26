@@ -1,0 +1,92 @@
+
+
+
+.testimonials-section {
+  padding: 80px 20px;
+  background-color: var(--bg-neutral); /* Alice Blue */
+  min-height: 60vh;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header h2 {
+  color: var(--ct-primary-dark);
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.section-header p {
+  color: #5d96cf;
+  font-size: 1.1rem;
+}
+
+/* --- Main Layout Wrapper --- */
+.section-content {
+  display: flex;
+  flex-direction: row; /* Side by side on desktop */
+  align-items: flex-start; /* Align to top */
+  justify-content: center;
+  gap: 40px; /* Space between grid and phone */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Columns --- */
+
+/* Left side: Takes up remaining space */
+.reviews-column {
+  flex: 1; 
+  width: 100%;
+}
+
+/* Right side: Fixed size for the phone area, prevents shrinking */
+.media-column {
+  flex: 0 0 auto;
+  /*padding-top: 20px; /* Slight offset to align nicely with cards */
+}
+
+
+/* --- The Reviews Grid --- */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* When screen is narrower than 1100px, stack them */
+@media screen and (max-width: 1100px) {
+  .section-content {
+    flex-direction: column-reverse; /* Phone on top, or remove '-reverse' for phone on bottom */
+    align-items: center;
+  }
+
+  .reviews-column {
+    width: 100%;
+  }
+  
+  .media-column {
+    margin-bottom: 40px;
+  }
+}
+
+/* Loading & Error States */
+.loading-state, .error-state {
+  text-align: center;
+  padding: 50px;
+  color: #00264D;
+  font-size: 1.2rem;
+}
+
+.error-state {
+  color: #d9534f;
+}

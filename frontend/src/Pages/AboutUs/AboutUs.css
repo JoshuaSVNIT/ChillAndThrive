@@ -1,0 +1,447 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* Navbar */
+
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #96ccff;
+}
+
+.nav-links .btn-nav {
+    background-color: #3c15fc;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.nav-links .btn-nav:hover {
+    background-color: #2400d7;
+}
+
+/* about-us-hero Section */
+.about-us-hero-section {
+    height: 100vh;
+    background-image: url('https://t4.ftcdn.net/jpg/02/70/40/92/360_F_270409228_6YJv8ZJvXzJvX7XJvXJvX7XJvXJvX7XJ.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.about-us-hero-overlay {
+    background-color: rgba(0, 43, 92, 0.75);
+    /* Navy overlay */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.about-us-hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #e6f0ff;
+}
+
+.btn-about-us-hero {
+    background-color: #ffffff;
+    color: #015cb7;
+    padding: 16px 36px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-about-us-hero:hover {
+    background-color: #015cb7;
+    color: white;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #4096f8;
+    /* Bold navy blue */
+}
+
+p {
+    font-size: 1.1rem;
+    color: #444;
+}
+
+.tagline {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #e2edf9;
+}
+
+/* about-us-hero Section */
+.about-us-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #002b5c 50%, #e6f0ff 50%);
+    color: #fff;
+    padding: 0 8% 4px 4%;
+}
+
+.about-us-hero-text {
+    max-width: 50%;
+}
+
+.about-us-hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-us-hero-media .placeholder {
+    background-color: #ffffff;
+    color: #002b5c;
+    padding: 100px;
+    text-align: center;
+    font-weight: bold;
+    border: 3px solid #002b5c;
+    border-radius: 12px;
+}
+
+/* Mission Section */
+.mission {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.mission h2 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+}
+
+.mission .placeholder {
+    background-color: #f0f8ff;
+    padding: 150px;
+    margin-top: 50px;
+    font-weight: bold;
+    border: 2px dashed #0056b3;
+    border-radius: 10px;
+}
+
+/* Values Section */
+.values {
+    padding: 80px 10%;
+    background-color: #f9f9f9;
+}
+
+.values h2 {
+    text-align: center;
+}
+
+.value-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.value-card {
+    padding: 12px;
+}
+
+/* Primary Blue Button */
+.button_placeHolder {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    background: linear-gradient(135deg, #004080, #0073e6);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 64, 128, 0.25);
+}
+
+.button_placeHolder:hover {
+    background: linear-gradient(135deg, #003366, #005bb5);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 64, 128, 0.35);
+}
+
+.button_placeHolder:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 8px rgba(0, 64, 128, 0.2);
+}
+
+
+.value-card {
+    flex: 1;
+    background-color: #fff;
+    padding: 16px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    background-color: #ebf5ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+}
+
+.value-card .placeholder {
+    background-color: #cce0ff;
+    padding: 70px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/* Team Section */
+.team {
+    padding: 80px 10%;
+    background-color: #e6f0ff;
+}
+
+.team h2 {
+    text-align: center;
+}
+
+.team-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.team-member {
+    flex: 1;
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container .placeholder {
+    background-color: #cce0ff;
+    padding: 150px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 50%;
+    /* border: 3px solid #002b5c; */
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover .placeholder {
+    transform: scale(1.05);
+}
+
+/* Overlay effect */
+.overlay {
+    position: absolute;
+    top: -9px;
+    left: -9px;
+    width: 105%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(4, 111, 233, 0.8);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.overlay p {
+    color: white;
+    font-size: 24px;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+/* Mission & Vision Section */
+.mission-vision {
+    padding: 80px 10%;
+    background-color: #f9f9f9;
+}
+
+.mv-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.mv-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.mv-text {
+    flex: 1;
+    font-size: 28px;
+}
+
+.mv-text h2 {
+    font-size: 2.8rem;
+    color: #004080;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.mv-text p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.mv-image {
+    flex: 1;
+    background-color: #cce0ff;
+    padding: 120px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 12px;
+    border: 2px dashed #004080;
+    color: #004080;
+    transition: transform 0.3s ease;
+}
+
+.mv-image:hover {
+    transform: scale(1.05);
+}
+
+/* Statement Section */
+.statement-section {
+    background-color: #e6f0ff;
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.statement-box {
+    background-color: #ffffff;
+    border-left: 6px solid #004080;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 64, 128, 0.15);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.statement-box h2 {
+    font-size: 2.6rem;
+    color: #004080;
+    margin-bottom: 20px;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.statement-box p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.statement-tagline {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #004080;
+    background-color: #cce0ff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+
+.wc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.wc-card {
+    background-color: #ffffff;
+    color: #002b5c;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wc-card h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #004080;
+}
+
+.wc-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+.wc-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(0, 64, 128, 0.35);
+    background-color: #ebf5ff;
+}
+

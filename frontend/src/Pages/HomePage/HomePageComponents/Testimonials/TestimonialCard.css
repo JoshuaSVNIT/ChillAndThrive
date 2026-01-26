@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+
+
+
+.testimonial-card {
+  background-color: var(--ct-secondary-dark);
+  border-radius: 24px; /* More rounded corners like the image */
+  padding: 25px 30px;  /* More padding for the 'clean' look */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft, diffused shadow */
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align everything to the left */
+  
+  transition: transform 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.02); /* Very subtle border */
+}
+
+
+.quote-icon {
+  font-size: 4rem; /* Huge size */
+  color: #9cbacf;  /* Muted Blue/Grey from your image */
+  font-family: serif; /* Serif font makes the quote mark look elegant */
+  line-height: 1;
+  margin-bottom: 10px; /* Space between quote and text */
+  margin-left: -5px; /* Slight optical alignment fix */
+}
+
+/* 2. The Text */
+.feedback-text {
+  color: var(--bg-neutral); /* Dark Grey */
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic; /* Matches the image style */
+  margin: 0 0 30px 0; /* Margin bottom pushes the profile down */
+}
+
+/* 3. Profile Section (Renamed from card-header) */
+.card-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: auto; /* Ensures profile sticks to bottom if cards have fixed height */
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  margin: 0;
+  color: var(--bg-neutral); /* Black/Dark Navy */
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  color: var(--bg-neutral); /* Light Grey text for the role */
+  margin-top: 2px;
+}

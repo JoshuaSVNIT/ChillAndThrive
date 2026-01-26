@@ -1,0 +1,189 @@
+/* EventCard.css */
+
+.event-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    background-color: white; 
+    
+    /* 1. Set a consistent minimum height for the whole card */
+    min-height: 450px; 
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Image Side & Carousel --- */
+.event-image {
+    position: relative; /* Anchors the absolute image */
+    overflow: hidden;
+    width: 100%;
+    height: 100%; /* Stretches to match the text content height */
+    background-color: #f3f4f6;
+}
+
+.carousel-img {
+    /* 2. Absolute positioning prevents image size from changing container size */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover; /* Ensures image fills space without stretching */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Animation for slide fade */
+.fade-anim {
+    animation: fadeEffect 0.8s;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+/* --- Carousel Controls --- */
+.event-carousel-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none; 
+    z-index: 2; /* Sit on top of image */
+}
+
+/* Navigation Buttons */
+.event-nav-btn {
+    pointer-events: auto; 
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0; 
+}
+
+.event-nav-btn.left { border-radius: 0 10px 10px 0; }
+.event-nav-btn.right { border-radius: 10px 0 0 10px; }
+
+.event-nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #111;
+}
+
+/* SHOW Buttons on Hover */
+.event-image:hover .event-nav-btn {
+    opacity: 1;
+}
+
+/* Dots at the bottom */
+.event-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.3);
+}
+
+/* --- Content Side --- */
+.event-content {
+    background: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Ensure content dictates the height if it's long */
+    min-height: 450px; 
+}
+
+.event-title {
+    font-size: 2rem;
+    color: #111827;
+    margin-bottom: 15px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.event-description {
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+
+/* --- REVERSE LAYOUT LOGIC --- */
+.event-card.reverse .event-image {
+    order: 2;
+}
+
+.event-card.reverse .event-content {
+    order: 1;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .event-card {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: auto; /* Reset min-height for mobile */
+    }
+
+    .event-image {
+        /* 3. Fixed height for image area on mobile */
+        height: 300px;
+        min-height: 300px;
+    }
+
+    .event-content {
+        padding: 25px;
+        min-height: auto; /* Let text dictate height naturally on mobile */
+    }
+
+    /* On mobile, usually better to keep image on top */
+    .event-card.reverse .event-image {
+        order: -1; 
+    }
+    
+    .event-card.reverse .event-content {
+        order: 1;
+    }
+
+    .event-title {
+        font-size: 1.5rem;
+    }
+    
+    .event-nav-btn {
+        opacity: 1;
+    }
+}

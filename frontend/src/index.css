@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+
+}
+
+
+:root {
+
+  --ct-light-blue: #c0edfa;
+  --ct-primary-dark: rgb(20, 84, 120);
+  --ct-secondary-dark: rgb(106, 155, 183);
+
+  /* --- Background Colors --- */
+  --bg-neutral: #e2f7ff;
+
+
+}
+
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}

@@ -1,0 +1,298 @@
+/* FounderPageNew.css */
+
+/* --- Variables (Ensuring consistency even if global vars miss) --- */
+
+
+.founders-page {
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+    color: var(--ct-primary-dark);
+    background-color: var(--bg-neutral);
+    min-height: 100vh;
+}
+
+/* --- 1. HEADER SECTION (Matches Contact Us) --- */
+.founders-header {
+    background-color: var(--ct-bg-neutral);
+    text-align: center;
+    /* padding: 10rem 1rem 5rem; Matches top padding of Contact Us */
+    padding-top: 5rem;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.founders-title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--ct-primary-dark);
+    margin: 0;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+.founders-subtitle {
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    color: #6b7280;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Decorative Arrows */
+.header-decoration-left, 
+.header-decoration-right {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    opacity: 0.3;
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #555;
+    display: none; /* Hidden on mobile */
+}
+
+@media (min-width: 992px) {
+    .header-decoration-left, 
+    .header-decoration-right {
+        display: block;
+    }
+    .header-decoration-left { left: 5%; }
+    .header-decoration-right { right: 5%; }
+}
+
+/* --- 2. MAIN CONTAINER --- */
+.founders-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+/* --- 3. FOUNDER PROFILE CARD --- */
+.founder-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 20px;
+    /* Soft shadow to match MainServicesCard */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3f4f6;
+    overflow: hidden;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 992px) {
+    .founder-card {
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
+
+.founder-image-wrapper {
+    flex: 1;
+    min-height: 400px;
+}
+
+.founder-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.founder-content {
+    flex: 1.2;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.founder-role {
+    color: var(--ct-accent-blue);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.founder-name {
+    font-size: 2.5rem;
+    color: var(--ct-primary-dark);
+    margin-bottom: 1.5rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+}
+
+.story-heading {
+    font-size: 1rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.founder-story-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+.vision-text {
+    font-weight: 600;
+    color: var(--ct-primary-dark);
+    border-left: 4px solid var(--ct-bg-neutral);
+    padding-left: 15px;
+    font-style: italic;
+}
+
+/* --- 4. VALUES GRID (Matches Info Cards) --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--ct-primary-dark);
+    margin-bottom: 3rem;
+    font-weight: 800;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+    .values-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.value-card {
+    background-color: #ffffff; /* White background */
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+    border-color: var(--ct-bg-neutral);
+}
+
+.value-icon-circle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--ct-primary-dark);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: var(--ct-primary-dark);
+}
+
+.value-card h4 {
+    font-size: 1.25rem;
+    color: var(--ct-primary-dark);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.value-card p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* --- 5. MISSION BADGE --- */
+.mission-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #ffffff;
+    margin-bottom: 4rem;
+}
+
+.mission-badge {
+    background-color: var(--ct-bg-neutral);
+    color: var(--ct-primary-dark);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.mission-section h3 {
+    font-size: 2rem;
+    line-height: 1.4;
+    color: var(--ct-primary-dark);
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 700;
+}
+
+/* --- 6. QUOTE & SIGNATURE --- */
+.quote-container blockquote {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--ct-primary-dark);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.5;
+}
+
+.quote-container cite {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ct-accent-blue);
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.founders-signature {
+    background-color: var(--ct-primary-dark);
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.founders-signature h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.founders-signature p {
+    color: #9ca3af;
+    margin-bottom: 2rem;
+}
+
+.btn-connect {
+    background-color: white;
+    color: var(--ct-primary-dark);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.btn-connect:hover {
+    transform: scale(1.05);
+}

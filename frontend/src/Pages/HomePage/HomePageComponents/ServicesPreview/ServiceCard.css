@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* --- Main Card Container --- */
+.service-card {
+  /* RESPONSIVE FIX: */
+  width: 100%;           /* Allow shrinking */
+  max-width: 315px;      /* But cap at the original design width */
+  height: 473px;
+  
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin: 0 auto; /* Centers card if it's the only one in a flex row */
+}
+
+/* Hover Effect: Scale up entire card */
+.service-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.391);
+}
+
+/* --- Top Section (Image Area) --- */
+.top-content {
+  flex: 1;
+  /* Takes all available height */
+  width: 100%;
+  position: relative;
+  /* Crucial: traps the overlay inside this box */
+  overflow: hidden;
+  /* Crucial: hides the overlay when it's pushed down*/
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* --- The Sliding Overlay --- */
+.slide-up-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* 1. Start completely pushed down (hidden) */
+  transform: translateY(100%);
+
+  /* 2. Visuals */
+  background-color: rgba(60, 86, 112, 0.545);
+  /* Deep Navy */
+  backdrop-filter: blur(3px);
+
+  /* 3. Layout for text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+
+  /* 4. The Animation Speed */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- Hover State: Slide It Up --- */
+.service-card:hover .slide-up-overlay {
+  /* Bring it back to natural position (covering the image) */
+  transform: translateY(0);
+}
+
+/* --- Hidden Details Text --- */
+.hidden-details-wrapper {
+  /* Optional: Fade text in slightly after the slide starts */
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.service-card:hover .hidden-details-wrapper {
+  opacity: 1;
+}
+
+.card-details {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.card-cta {
+  display: inline-block;
+  color: #FF8C00;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+/* --- Bottom Section (Always Visible) --- */
+.non-hidden-details {
+  background-color: var(--ct-secondary-dark);
+  color: var(--ct-light-blue);
+  padding: 15px 20px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  /* Ensure this stays on top visually if z-index issues occur */
+  position: relative;
+  z-index: 10;
+}
+
+.card-title {
+  margin: 0;
+ color: var(--ct-light-blue);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+
+.price-duration-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.price-badge {
+
+
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.duration-text {
+
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (hover: none) {
+    .slide-up-overlay {
+        transform: translateY(0); /* Always show overlay */
+        background-color: rgba(60, 86, 112, 0.85); /* Darker bg for readability */
+    }
+    
+    .hidden-details-wrapper {
+        opacity: 1;
+    }
+}

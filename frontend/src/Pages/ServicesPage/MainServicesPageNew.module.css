@@ -1,0 +1,132 @@
+.services-page {
+  margin-top: 40px;
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  background-color: white;
+}
+
+/* --- Header Section --- */
+.services-header-section {
+  background-color: white;
+  text-align: center;
+  color: var(--ct-primary-dark);
+  position: relative;
+  margin-bottom: 2rem;
+  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem; /* Visual breathing room */
+}
+
+/* Renamed from .page-title to .services-page-title 
+   to avoid Conflict with Contact Us page wavy lines 
+*/
+.services-header-section .page-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--ct-primary-dark);
+  margin: 0 0 1rem 0; /* Spacing below title */
+  line-height: 1.2;
+  position: relative;
+  
+  /* KEY FIX: Changed from 'flex' to 'inline-block' to allow text-align: center to work */
+  display: inline-block; 
+}
+
+/* Subtitle Styling */
+.services-header-section .page-subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #4b5563; /* Changed from 'red' to a professional dark grey */
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* --- Decoration Arrows --- */
+.header-decoration-left,
+.header-decoration-right {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  opacity: 0.3;
+  font-family: monospace;
+  font-size: 1.5rem;
+  color: #555;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .header-decoration-left,
+  .header-decoration-right {
+    display: block;
+  }
+
+  .header-decoration-left {
+    left: 5%;
+  }
+
+  .header-decoration-right {
+    right: 5%;
+  }
+}
+
+/* --- Main Container --- */
+.services-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem 2rem;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- No Services Found State --- */
+.no-services-placeholder {
+  text-align: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  border: 1px dashed var(--ct-primary-dark);
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.no-services-placeholder h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--ct-primary-dark);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.no-services-placeholder p {
+  font-family: 'Inter', sans-serif;
+  color: var(--ct-primary-dark);
+  font-size: 1rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* --- Responsive Fixes --- */
+@media (max-width: 768px) {
+  .services-header-section .page-title {
+    font-size: 2.5rem; /* Smaller font on mobile */
+  }
+  
+  .services-header-section .page-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .services-container {
+    padding: 0 1rem 3rem;
+  }
+}

@@ -1,0 +1,102 @@
+/* EventsPageNew.css */
+
+.events-page {
+    /* Matches Services Page: Clean white background */
+    background-color: white;
+    min-height: 100vh;
+    padding-top: 100px; /* Space for fixed header */
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    color: #111827;
+}
+
+.events-container {
+    max-width: 1140px; /* Standard width matching Services Page */
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+/* --- Header Styles --- */
+.events-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-header h1 {
+    color: #111827; /* Dark Navy/Black */
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    text-shadow: none;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #4b5563; /* Professional Grey */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* --- Events List Layout --- */
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; 
+}
+
+/* --- No Events Placeholder (Matches Services Design) --- */
+.no-events-placeholder {
+    text-align: center;
+    padding: 60px 40px;
+    background-color: #f9fafb; /* Very light gray background */
+    border-radius: 16px;
+    border: 1px dashed #d1d5db; /* Subtle dashed border */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.icon-circle-large {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.no-events-placeholder h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #111827;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.no-events-placeholder p {
+    font-family: 'Inter', sans-serif;
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+    .events-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .events-container {
+        padding: 0 1rem 3rem;
+    }
+
+    .no-events-placeholder {
+        padding: 40px 20px;
+    }
+}

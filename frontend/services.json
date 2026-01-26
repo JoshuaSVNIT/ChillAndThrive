@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "s1",
+    "title": "Premium Ice Bath",
+    "short_detail": "Reduce inflammation and boost recovery instantly with our precision-cooled plunge.",
+    "long_detail": [
+      "Water maintained at a crisp 3°C - 10°C",
+      "Increases dopamine levels by up to 250%",
+      "Guided breathing protocols available",
+      "Private changing suite included"
+    ],
+    "price": "$45",
+    "duration": "20 Mins",
+    "image": "https://images.unsplash.com/photo-1596395819057-d3524dc8648e?auto=format&fit=crop&q=80&w=800",
+    "link": "/services/ice-bath"
+  },
+  {
+    "_id": "s2",
+    "title": "Infrared Sauna",
+    "short_detail": "Detoxify your body and relax your mind with deep-penetrating infrared heat.",
+    "long_detail": [
+      "Full spectrum infrared technology",
+      "Chromotherapy lighting for mood enhancement",
+      "Premium Bluetooth audio system",
+      "Promotes deep sleep and skin health"
+    ],
+    "price": "$55",
+    "duration": "45 Mins",
+    "image": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=800",
+    "link": "/services/sauna"
+  },
+  {
+    "_id": "s3",
+    "title": "Compression Therapy",
+    "short_detail": "Flush out metabolic waste and increase circulation with dynamic air compression.",
+    "long_detail": [
+      "Normatec dynamic air compression boots",
+      "Customizable pressure zones",
+      "Reduces muscle soreness and fatigue",
+      "Perfect for post-leg day recovery"
+    ],
+    "price": "$30",
+    "duration": "30 Mins",
+    "image": "https://images.unsplash.com/photo-1519823551278-64ac927accc1?auto=format&fit=crop&q=80&w=800",
+    "link": "/services/compression"
+  },
+  {
+    "_id": "s4",
+    "title": "Contrast Therapy",
+    "short_detail": "The ultimate recovery combo. Alternate between fire and ice for maximum effect.",
+    "long_detail": [
+      "Access to both Sauna and Ice Bath",
+      "Optimizes blood flow and circulation",
+      "Accelerates muscle repair significantly",
+      "Includes hydration and electrolyte drink"
+    ],
+    "price": "$75",
+    "duration": "60 Mins",
+    "image": "https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&q=80&w=800",
+    "link": "/services/contrast-therapy"
+  }
+]

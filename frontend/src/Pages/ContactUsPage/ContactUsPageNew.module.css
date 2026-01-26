@@ -1,0 +1,287 @@
+/* ContactUs.css */
+
+/* --- 1. Global & Layout --- */
+.contact-page {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.contact-container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem 2rem;
+}
+
+/* --- 2. Header Section (Light Blue BG) --- */
+.contact-header {
+  background-color: var(--bg-neutral); /* Exact light blue-gray from image */
+  text-align: center;
+  padding: 5rem 1rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 4rem; /* Big & Bold */
+  font-weight: 900;
+  color: #111;
+  margin: 0;
+  line-height: 1.2;
+  position: relative;
+  display: inline-block;
+}
+
+/* The Wavy Line under "Contact Us" */
+.page-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 10px;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='10' viewBox='0 0 40 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 10 0 20 5 T 40 5' stroke='%23333' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  margin: 1rem auto 0;
+}
+
+.page-subtitle {
+  max-width: 500px;
+  margin: 1.5rem auto 0;
+  color: #7A8C90; /* Muted gray-green text */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Arrows position */
+.header-decoration-left, 
+.header-decoration-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.3; /* Subtle */
+}
+.header-decoration-left { left: 5%; }
+.header-decoration-right { right: 5%; }
+
+
+/* --- 3. Logos Section --- */
+.logo-banner {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem 0 4rem;
+  flex-wrap: wrap;
+  opacity: 0.6; /* Logos look slightly faded in design */
+}
+
+.logo-placeholder {
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+
+/* --- 4. Form & Newsletter Container --- */
+.contact-main-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 992px) {
+  .contact-main-row {
+    flex-direction: row;
+    align-items: stretch; /* Ensures both boxes are same height if content allows */
+  }
+}
+
+/* --- Left Side: Contact Form --- */
+.contact-form {
+  flex: 1.5; /* Takes 60% width */
+}
+
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* The Inputs */
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background-color: var(--bg-neutral); /* Specific gray-blue input bg */
+  border: none;
+  border-radius: 50px; /* Fully rounded pills for inputs */
+  font-size: 1rem;
+  color: var(--ct-primary-dark);
+  outline: none;
+  box-sizing: border-box; /* Fixes padding issues */
+}
+
+.form-textarea {
+  border-radius: 25px; /* Slightly less rounded for box */
+  min-height: 200px;
+  resize: vertical;
+  margin-bottom: 2rem;
+}
+
+.form-input::placeholder, .form-textarea::placeholder {
+  color: var(--ct-primary-dark); /* Placeholder text color */
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Submit Button */
+.submit-btn {
+  background-color:var(--ct-primary-dark); /* The Sage Green Button */
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: var(--ct-primary-dark);
+}
+
+
+/* --- Right Side: Newsletter Box --- */
+.newsletter-box {
+  flex: 1; /* Takes 40% width */
+  background-color: var(--ct-primary-dark); /* Matches the Submit Button */
+  padding: 3rem;
+  border-radius: 25px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.newsletter-box h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.newsletter-box p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.newsletter-input-group input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.newsletter-btn {
+  width: 100%;
+  background-color: #111111; /* Black button */
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+/* --- 5. Info Cards --- */
+.info-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .info-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.info-card {
+  background-color: var(--ct-light-blue); /* Light Sage Green */
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: left; /* Image shows left aligned or center, usually center is safer for cards */
+  color: var(--ct-primary-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to left */
+}
+
+.icon-circle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--ct-primary-dark);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px; /* Rounded square icon */
+}
+
+.info-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* ... inside ContactUsPageNew.css ... */
+
+/* Find your existing .info-card.white-card block and UPDATE it */
+.info-card.white-card {
+  background-color: #FFFFFF;
+  color: var(--ct-primary-dark);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  
+  /* NEW: Interaction Styles */
+  cursor: pointer;
+  text-decoration: none; /* Removes underline from link text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+/* NEW: Hover Effect */
+.info-card.white-card:hover {
+  transform: scale(1.05); /* Increases size by 5% */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* Makes shadow deeper/softer */
+}
+
+/* --- 6. Map Section --- */
+.map-section {
+  border-radius: 30px;
+  overflow: hidden;
+  height: 350px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .page-title { font-size: 2.5rem; }
+  .form-row { flex-direction: column; gap: 1rem; }
+  .contact-container { padding: 0 1rem 3rem; }
+}

@@ -1,0 +1,5 @@
+.home-page-container {
+    background-color:  var(--bg-neutral) ;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}

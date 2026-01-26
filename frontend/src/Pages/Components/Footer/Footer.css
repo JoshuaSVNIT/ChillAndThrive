@@ -1,0 +1,177 @@
+/* Main Footer Container */
+.footer {
+  background-color: #111827; /* Dark background like your brand blue */
+  color: #f3f4f6; /* Light text color */
+  padding: 60px 20px 20px;
+  font-family: sans-serif;
+}
+
+/* Content Wrapper to center and constrain width */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows stacking on smaller screens */
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+/* Individual Footer Sections */
+.footer-section {
+  flex: 1; /* Each section takes equal width */
+  min-width: 250px; /* Ensures sections don't get too squished */
+}
+
+/* --- Left Section (Logo & Brand) --- */
+.footer-logo {
+  width: 150px; /* Adjust as needed */
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.footer-brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+/* --- Middle & Right Section Headings --- */
+.footer-section h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+  position: relative;
+}
+
+/* Optional: Add a small underline to headings */
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 40px;
+  height: 2px;
+  background-color: #3b82f6; /* A brighter blue for accent */
+}
+
+/* --- Links List (Middle Section) --- */
+.footer-middle ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-middle ul li {
+  margin-bottom: 12px;
+}
+
+.footer-middle ul li a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-middle ul li a:hover {
+  color: #3b82f6; /* Accent color on hover */
+}
+
+/* --- Contact Section (Right Section) --- */
+/* --- Contact Section (Right Section) --- */
+.contact-item {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* Updated selector for React Icons (SVG) */
+.contact-icon {
+  margin-right: 12px;
+  color: white; /* Brand Blue Accent */
+  font-size: 1.1rem;
+  min-width: 20px; /* Ensures alignment even if text wraps */
+}
+
+.contact-item a {
+  color: #d1d5db;
+  text-decoration: none;
+  display: flex; /* Aligns icon and text perfectly */
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+  color: #3b82f6;
+}
+/* Special styling for the location link */
+.footer-location-link {
+  font-weight: 500;
+}
+
+/* --- Social Media Icons --- */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #1f2937; /* Slightly lighter background */
+  color: #ffffff;
+  border-radius: 50%; /* Makes them circular */
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+/* Brand colors on hover */
+.social-icon.instagram:hover { background-color: #E1306C; }
+.social-icon.facebook:hover { background-color: #1877F2; }
+.social-icon.linkedin:hover { background-color: #0077B5; }
+.social-icon:hover {
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* --- Bottom Copyright Bar --- */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #374151; /* Subtle top border */
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,281 @@
+/* AwarenessPage.css */
+
+:root {
+    --ct-bg-neutral: #E2EFF1; 
+    --ct-dark-blue: #111827;
+    --ct-brand-blue: #0059B3;
+    --ct-success-bg: #ecfdf5;
+    --ct-success-text: #047857;
+    --ct-error-bg: #fef2f2;
+    --ct-error-text: #b91c1c;
+}
+
+.awareness-page {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--ct-dark-blue);
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+.awareness-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem 2rem;
+}
+
+/* --- 1. Header Section --- */
+.awareness-header {
+    background-color: var(--ct-bg-neutral);
+    text-align: center;
+    padding: 10rem 1rem 5rem; /* Matches other pages */
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--ct-dark-blue);
+    margin: 0;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+/* Wavy Line Decoration */
+.page-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='10' viewBox='0 0 40 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5 Q 10 0 20 5 T 40 5' stroke='%23333' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    margin: 1rem auto 0;
+}
+
+.page-subtitle {
+    max-width: 600px;
+    margin: 1.5rem auto 0;
+    color: #6b7280;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- Section Titles --- */
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--ct-dark-blue);
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+/* --- 2. Awareness Info Cards --- */
+.awareness-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-bottom: 6rem;
+}
+
+@media (min-width: 768px) {
+    .awareness-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.awareness-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid #f3f4f6;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.awareness-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-topic {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--ct-brand-blue);
+}
+
+.card-quote {
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--ct-bg-neutral);
+}
+
+.card-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: #374151;
+}
+
+.card-points {
+    list-style: none;
+    padding: 0;
+    margin-top: auto; /* Pushes list to bottom if card height varies */
+}
+
+.card-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: #4b5563;
+}
+
+.point-dot {
+    color: var(--ct-brand-blue);
+    font-weight: bold;
+}
+
+/* --- 3. Myths & Facts Section --- */
+.myths-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 6rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myth-fact-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    .myth-fact-card {
+        flex-direction: row;
+    }
+}
+
+.myth-side, .fact-side {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Myth Styling (Red) */
+.myth-side {
+    background-color: var(--ct-error-bg);
+    color: var(--ct-error-text);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+@media (min-width: 768px) {
+    .myth-side {
+        border-bottom: none;
+        border-right: 1px solid rgba(0,0,0,0.05);
+    }
+}
+
+/* Fact Styling (Green) */
+.fact-side {
+    background-color: var(--ct-success-bg);
+    color: var(--ct-success-text);
+}
+
+.mf-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+}
+
+.mf-icon {
+    font-size: 1.2rem;
+}
+
+.mf-content {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* --- 4. FAQ Accordion --- */
+.faq-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 1rem;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ct-dark-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    transition: color 0.2s;
+}
+
+.faq-question:hover {
+    color: var(--ct-brand-blue);
+}
+
+.faq-toggle-icon {
+    font-size: 1.5rem;
+    color: #9ca3af;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active .faq-toggle-icon {
+    transform: rotate(45deg); /* Rotates plus to x */
+    color: var(--ct-brand-blue);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.faq-answer.open {
+    max-height: 500px; /* Arbitrary large height */
+    opacity: 1;
+    padding-bottom: 1.5rem;
+}
+
+.faq-answer p {
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 1rem;
+}
