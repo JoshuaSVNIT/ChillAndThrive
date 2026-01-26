@@ -10,12 +10,18 @@ export default {
     },
 
     {
-      name: 'descpription',
+      name: 'description',
       title: 'Description',
       type: 'string',
     },
     {
-      name: 'HeaderImage',
+      name: 'details',
+      title: 'Details',
+      type: 'array',
+      of: [{type: 'string'}],
+    },
+    {
+      name: 'headerImage',
       title: 'Cover Image',
       type: 'image',
       options: {

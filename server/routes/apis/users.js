@@ -7,6 +7,7 @@ const ROLES_LIST = require("../../config/rolesList");
 
 router.use(verifyJWT);
 //the next() inside verifyJWT tells it to move forward to next 👇 code
+router.route("/myProfile").get(userControllers.myProfile); // View single profile
 
 router
   .route("/")

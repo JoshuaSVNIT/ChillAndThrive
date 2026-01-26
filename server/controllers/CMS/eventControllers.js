@@ -12,8 +12,12 @@ const getAllEvents = async (req, res) => {
     const query = `*[_type == "events"]{
             _id,
             title,
-            review,
-            image
+            description,
+            details[],
+            "headerImageUrl": headerImage.asset->url,
+            gallery[]{"imageUrl": asset->url},
+            headerImage,
+            videoGallery[]{ "videoUrl": asset->url  }
         }`;
 
     const services = await client.fetch(query);

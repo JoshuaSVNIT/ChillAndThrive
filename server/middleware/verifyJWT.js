@@ -16,6 +16,8 @@ const verifyJWT = (req, res, next) => {
     if (err) return res.sendStatus(403); //forbidden (Invalid Token)
 
     req.user = decoded.UserInfo.email; //JS creates property user
+    req.id = decoded.UserInfo.id; //JS creates property id
+    req.id = decoded.UserInfo.id; //JS creates property id
     req.roles = decoded.UserInfo.roles;
     next();
   });

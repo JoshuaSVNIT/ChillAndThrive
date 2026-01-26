@@ -17,7 +17,8 @@ const getAllServices = async (req, res) => {
             shortDescription,
             longDescription,
             benefits,
-            "imageUrl": image.asset->url
+            "image": image.asset->url,
+            "gallery": gallery[].asset->url
         }`;
 
     const services = await client.fetch(query);
@@ -30,6 +31,6 @@ const getAllServices = async (req, res) => {
 };
 
 const test = async (req, res) => {
-  res.json({ message: "Service controller is working!" });
+  res.json([]); //empty array for bili to check
 };
 module.exports = { getAllServices, test };

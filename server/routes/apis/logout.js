@@ -5,7 +5,7 @@ const logoutControllers = require("../../controllers/logoutControllers");
 // 👇 ADD THIS LINE TO DEBUG
 // console.log("Loaded Controller:", logoutControllers);
 
-router.get("/", logoutControllers.handleLogout);
+router.post("/", logoutControllers.handleLogout);
 //according to internet .get due to "getting" logout action
 //Prankster could sent '/' from browser and logout the user
 

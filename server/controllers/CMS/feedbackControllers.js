@@ -12,11 +12,13 @@ const writeClient = createClient({
 
 exports.submitFeedback = async (req, res) => {
   try {
-    const { name, message, rating } = req.body;
+    const { name, email, phone, message, rating } = req.body;
 
     const newFeedback = await writeClient.create({
       _type: "feedback", // Must match schema name
       name: name,
+      email: email,
+      phone: phone,
       message: message,
       rating: Number(rating),
       status: "pending", // Default to pending
