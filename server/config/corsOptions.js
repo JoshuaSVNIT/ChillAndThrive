@@ -4,7 +4,7 @@ const whitelist = [
   // "http://localhost:3500",
   // "https://www.thunderclient.com",
   // "http://192.168.137.244:3500",
-  // "http://localhost:5173",
+  "http://localhost:5173",
   // "http://192.168.137.244:5173",
   "https://chillandthrive.netlify.app",
 ];
