@@ -12,11 +12,16 @@ const Booking = require("../model/booking");
 const usersDB = require("../model/users");
 
 const getAvailability = async (req, res) => {
-  const { date, resources } = req.body;
+  let { date, resources } = req.body;
 
   if (!date || !resources) {
     return res.status(400).json({ message: "Date and resources are required" });
   }
+
+  // Convert DD-MM-YYYY to YYYY-MM-DD manually
+  const [day, month, year] = date.split("-");
+  const isoDate = `${year}-${month}-${day}`;
+  date = isoDate; // Use standardized date for the rest of the function
 
   const requestedResources = resources.split(","); //resources is a string to convert to array
 
@@ -80,11 +85,16 @@ const getAvailability = async (req, res) => {
 };
 
 const createBooking = async (req, res) => {
-  const { service, date, timeSlot, resources } = req.body;
+  let { service, date, timeSlot, resources } = req.body;
 
   if (!service || !date || !timeSlot || !resources) {
     return res.status(400).json({ message: "All fields are required" });
   }
+
+  // Convert DD-MM-YYYY to YYYY-MM-DD manually
+  const [day, month, year] = date.split("-");
+  const isoDate = `${year}-${month}-${day}`;
+  date = isoDate; // Use standardized date for storage and validation
 
   // Validate date is not in the past
   const bookingDate = new Date(date);
